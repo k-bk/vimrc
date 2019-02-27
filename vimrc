@@ -5,13 +5,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'robertmeta/nofrils'
 Plug 'vim-syntastic/syntastic'
+Plug 'elmcast/elm-vim'
+Plug 'vim-latex/vim-latex'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Color config 
-colorscheme nofrils-light
-set background=light
+colorscheme nofrils-dark
+set background=dark
 highlight MatchParen cterm=none ctermbg=none ctermfg=none
 
 :let g:nofrils_heavycomments = 1
@@ -37,38 +39,31 @@ set number		    " show line numbers
 set showcmd		    " show command in bottom bar
 set wildmenu		" visual autocomplete bar
 set showmatch		" highlight matching [{()}]
+set hidden          " enable hidden buffers
 
 set mouse=a
 
 set textwidth=80
-set scrolloff=5
+set scrolloff=7
 
 set hlsearch		" highlight all matches
 set smartcase       " search for case only if upper case used
 set ignorecase 
 
-set tabstop=4		" number of visual spaces per <TAB>
-set softtabstop=4	" number of spaces inserted and removed 
-set shiftwidth=4    " number of spaces inserted
 set expandtab		" tabs are spaces
+autocmd FileType *   setlocal ts=4 sts=4 sw=4
+autocmd FileType lua setlocal ts=3 sts=3 sw=3
 
 filetype indent on	" load specyfic rules for indenting
 set autoindent
 
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
+let g:tex_flavor = 'latex'
 
 set autochdir       " working directory is open file's directory
 
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
-
-" jk is escape
-inoremap jk <esc>
 
 " disable autocommenting
 autocmd FileType * setlocal formatoptions-=cro 
