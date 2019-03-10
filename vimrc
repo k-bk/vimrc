@@ -60,7 +60,7 @@ set autoindent
 
 let g:tex_flavor = 'latex'
 
-set autochdir       " working directory is open file's directory
+"set autochdir       " working directory is open file's directory
 
 " move vertically by visual line
 nnoremap j gj
