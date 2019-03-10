@@ -7,6 +7,7 @@ Plug 'robertmeta/nofrils'
 Plug 'vim-syntastic/syntastic'
 Plug 'elmcast/elm-vim'
 Plug 'vim-latex/vim-latex'
+Plug 'wincent/command-t'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
