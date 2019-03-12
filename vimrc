@@ -8,17 +8,22 @@ Plug 'vim-syntastic/syntastic'
 Plug 'elmcast/elm-vim'
 Plug 'vim-latex/vim-latex'
 Plug 'wincent/command-t'
+Plug 'NLKNguyen/papercolor-theme'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Color config 
-colorscheme nofrils-dark
-set background=dark
 highlight MatchParen cterm=none ctermbg=none ctermfg=none
+let &t_ut='' " something to fix background in vim in kitty
+set t_Co=256
 
-:let g:nofrils_heavycomments = 1
-:NofrilsFocusNormal
+set background=light
+colorscheme PaperColor
+
+" colorscheme nofrils-dark
+" :let g:nofrils_heavycomments = 1
+" :NofrilsFocusNormal
 
 nnoremap <C-\> :call CycleNofrils()<cr>
 let g:nofrilsCycle = 0
@@ -41,6 +46,7 @@ set showcmd		    " show command in bottom bar
 set wildmenu		" visual autocomplete bar
 set showmatch		" highlight matching [{()}]
 set hidden          " enable hidden buffers
+set laststatus=2
 
 set mouse=a
 
