@@ -18,7 +18,7 @@ highlight MatchParen cterm=none ctermbg=none ctermfg=none
 let &t_ut='' " something to fix background in vim in kitty
 set t_Co=256
 
-set background=light
+set background=dark
 colorscheme PaperColor
 
 " colorscheme nofrils-dark
@@ -47,12 +47,8 @@ set wildmenu		" visual autocomplete bar
 set showmatch		" highlight matching [{()}]
 set hidden          " enable hidden buffers
 set laststatus=2
-
 set mouse=a
-
-set textwidth=80
 set scrolloff=7
-
 set hlsearch		" highlight all matches
 set smartcase       " search for case only if upper case used
 set ignorecase 
