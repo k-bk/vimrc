@@ -54,8 +54,10 @@ set smartcase       " search for case only if upper case used
 set ignorecase 
 
 set expandtab		" tabs are spaces
-autocmd FileType *   setlocal ts=4 sts=4 sw=4
-autocmd FileType lua setlocal ts=3 sts=3 sw=3
+autocmd FileType *       setlocal ts=4 sts=4 sw=4
+autocmd FileType python  setlocal ts=2 sts=2 sw=2
+autocmd FileType python3 setlocal ts=2 sts=2 sw=2
+autocmd FileType lua     setlocal ts=3 sts=3 sw=3
 
 filetype indent on	" load specyfic rules for indenting
 set autoindent
