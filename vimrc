@@ -48,6 +48,7 @@ set showmatch		" highlight matching [{()}]
 set hidden          " enable hidden buffers
 set laststatus=2
 set mouse=a
+set mousefocus      " focus follows mouse
 set scrolloff=7
 set hlsearch		" highlight all matches
 set smartcase       " search for case only if upper case used
@@ -55,8 +56,8 @@ set ignorecase
 
 set expandtab		" tabs are spaces
 autocmd FileType *       setlocal ts=4 sts=4 sw=4
-autocmd FileType python  setlocal ts=2 sts=2 sw=2
-autocmd FileType python3 setlocal ts=2 sts=2 sw=2
+autocmd FileType python  setlocal ts=4 sts=4 sw=4
+autocmd FileType python3 setlocal ts=4 sts=4 sw=4
 autocmd FileType lua     setlocal ts=3 sts=3 sw=3
 
 filetype indent on	" load specyfic rules for indenting
@@ -65,6 +66,12 @@ set autoindent
 let g:tex_flavor = 'latex'
 
 "set autochdir       " working directory is open file's directory
+
+" easily move between windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " move vertically by visual line
 nnoremap j gj
