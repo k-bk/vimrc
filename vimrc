@@ -48,7 +48,6 @@ augroup ProjectDrawer
   autocmd VimEnter * :18Vexplore
 augroup END
 
-
 " Other config
 set number		    " show line numbers
 set showcmd		    " show command in bottom bar
@@ -75,8 +74,7 @@ autocmd FileType javascript      setlocal ts=2 sts=2 sw=2
 
 filetype indent on	" load specyfic rules for indenting
 set autoindent
-
-let g:tex_flavor = 'latex'
+autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace
 
 " tell vim to keep a backup file
 set backup
@@ -86,12 +84,6 @@ set backupdir=~/vim_tmp
 
 " tell vim where to put swap files
 set dir=~/vim_tmp
-
-" easily move between windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
 
 " move vertically by visual line
 nnoremap j gj
