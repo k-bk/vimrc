@@ -2,10 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
 Plug 'dense-analysis/ale'
-Plug 'elmcast/elm-vim'
-Plug 'vim-latex/vim-latex'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'pangloss/vim-javascript'
 Plug 'junegunn/fzf.vim'
