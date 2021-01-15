@@ -2,17 +2,12 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
-Plug 'dense-analysis/ale'
-Plug 'elmcast/elm-vim'
-Plug 'vim-latex/vim-latex'
+Plug 'airblade/vim-gitgutter'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'pangloss/vim-javascript'
-Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'preservim/tagbar'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
+Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-sensible'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -26,13 +21,22 @@ set t_Co=256
 set background=dark
 colorscheme PaperColor
 
-" Tagbar config
-nmap <F8> :TagbarToggle<CR>
+" Gitgutter config
+set signcolumn=yes
+
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '*'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+" Typescript-vim config
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 " FZF config
 nnoremap <silent> <C-f> :Rg<CR>
-nnoremap <silent> <Leader> :GFiles<CR>
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow " use ripgrep instead of grep
+nnoremap <silent> <Leader>f :Files<CR>
 let g:fzf_layout = { 'down':  '40%'}
 
 " Default file explorer (Netrw) setup
@@ -42,11 +46,11 @@ let g:netrw_errorlvl = 2
 let g:netrw_preview = 1
 let g:netrw_winsize = 30
 let g:netrw_chgwin = 2
+let g:netrw_keepdir = 0
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :18Vexplore
-augroup END
+" Airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Other config
 set number		    " show line numbers
@@ -76,14 +80,14 @@ filetype indent on	" load specyfic rules for indenting
 set autoindent
 autocmd BufWritePre * %s/\s\+$//e " remove trailing whitespace
 
-" tell vim to keep a backup file
+" Backup
 set backup
-
-" tell vim where to put its backup files
 set backupdir=~/vim_tmp
-
-" tell vim where to put swap files
+" Swap
 set dir=~/vim_tmp
+" Undo Backup
+set undofile
+set undodir=~/vim_tmp
 
 " move vertically by visual line
 nnoremap j gj

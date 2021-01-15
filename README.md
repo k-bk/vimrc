@@ -1,6 +1,7 @@
 # Instruction
 First, clone the git repo and create .vimrc file.
 ```
+mkdir ~/vim_tmp
 cd ~/.vim
 git clone git@github.com:karolBak/vimrc.git
 echo "runtime vimrc/vimrc" > ~/.vimrc
